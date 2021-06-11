@@ -19,6 +19,8 @@ module.exports = env => {
   let devtool = 'inline-source-map';
   let mode = 'development';
   let stats = 'minimal';
+  outputPath = `${__dirname}/build/js`;
+  publicPath = 'js/';
   let plugins = [
     new webpack.DefinePlugin({
       __ENV__: JSON.stringify(env.NODE_ENV)

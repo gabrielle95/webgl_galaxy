@@ -10,6 +10,7 @@
   "scripts": {
     "dev": "run-s dev:js webpack-server",
     "build": "run-s build:dir build:js",
+    "build-dev": "run-s build:dir-dev build:js-dev",
     "prebuild": "run-s clean lint",
     "clean": "rimraf build",
     "lint": "eslint src/js/",
@@ -17,7 +18,9 @@
     "webpack-watch": "webpack --env NODE_ENV=dev --progress --color --watch --hot",
     "dev:js": "webpack --env NODE_ENV=dev",
     "build:dir": "copyfiles -a -u 2 src/public/assets/**/*.* build/",
-    "build:js": "webpack --env NODE_ENV=prod --progress --color"
+    "build:dir-dev": "copyfiles -a -u 2 src/public/assets/**/*.* build/ && copyfiles -a -u 2 src/public/js/*.* build/",
+    "build:js": "webpack --env NODE_ENV=prod --progress --color",
+    "build:js-dev": "webpack --env NODE_ENV=dev --progress --color"
   },
   "dependencies": {
     "@tweenjs/tween.js": "^18.6.4",
